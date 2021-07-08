@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQCloud Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--    <link rel="stylesheet" type="text/css" href="https://www.17sucai.com/preview/337069/2015-10-16/text/css/jqcloud.css" />-->
+    <script src="https://www.17sucai.com/preview/337069/2015-10-16/text/js/jquery-2.1.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://img.agropages.com/js/jqcloud-1.0.4.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+    <div style="text-align: center;padding: 20px 0;"><span onclick="hecheng()" style="background: #0083cd;color:#fff;cursor: pointer;padding: 5px 15px;">点击生成组合</span></div>
+    <div id="my_favorite_latin_words" style="width: 800px; margin: 0px auto; height: 600px;"></div>
+    <script type="text/javascript">
+        var data = [
+            ['logo1.jpg'],
+            ['logo2.jpg'],
+            ['logo3.png'],
+            ['logo4.jpg'],
+            ['logo5.png'],
+            ['logo6.jpg'],
+            ['logo7.jpg'],
+            ['logo8.jpg'],
+            ['logo9.jpg'],
+            ['logo10.jpg'],
+            ['logo11.jpg'],
+            ['logo12.png'],
+            ['logo13.png'],
+            ['logo14.png'],
+        ];
+        var string_ = "";
+        for (var i = 0; i < data.length; i++) {
+            var string_f = data[i][0];
+            var string_n = data[i][1];
+            string_ += "{text: '" + string_f + "', weight: '" + string_n + "',html: {'class': 'span_list'}},";
+        }
+        $(function() {
+           $("#my_favorite_latin_words").jQCloud(word_list);
+            setTimeout(function() {
+                hecheng()
+            },200);
+        });
+        var string_list = string_;
+        var word_list = eval("[" + string_list + "]");
+        function on_mouseout() {
+            $(".append_div").remove();
+        }
+        function hecheng() {
+            $("#my_favorite_latin_words").html('');
+            $("#my_favorite_latin_words").show();
+            $("#my_favorite_latin_words").jQCloud(word_list);
+        }
+    </script>
+</body>
+
+</html>
